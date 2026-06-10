@@ -57,7 +57,7 @@ export function SiteHeader() {
         <div className="hidden md:flex items-center gap-2">
           {user ? (
             <>
-              <Link to="/dashboard">
+              <Link to="/profile">
                 <Button variant="ghost" size="sm">{user.email?.split("@")[0]}</Button>
               </Link>
               <Button size="sm" variant="outline" onClick={signOut}>Sign out</Button>
