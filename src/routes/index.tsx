@@ -44,7 +44,7 @@ function Landing() {
                   Get Started <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/features">
+              <Link to="/auth" search={{ mode: "signup" }}>
                 <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-white/30 hover:bg-white/10">
                   Explore Features
                 </Button>

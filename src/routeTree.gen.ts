@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResponsibleAiRouteImport } from './routes/responsible-ai'
-import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -28,11 +27,6 @@ import { Route as AuthenticatedToolsChatRouteImport } from './routes/_authentica
 const ResponsibleAiRoute = ResponsibleAiRouteImport.update({
   id: '/responsible-ai',
   path: '/responsible-ai',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeaturesRoute = FeaturesRouteImport.update({
-  id: '/features',
-  path: '/features',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -107,7 +101,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
-  '/features': typeof FeaturesRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/planner': typeof AuthenticatedPlannerRoute
@@ -123,7 +116,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
-  '/features': typeof FeaturesRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/planner': typeof AuthenticatedPlannerRoute
@@ -141,7 +133,6 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/contact': typeof ContactRoute
-  '/features': typeof FeaturesRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/planner': typeof AuthenticatedPlannerRoute
@@ -159,7 +150,6 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/contact'
-    | '/features'
     | '/responsible-ai'
     | '/dashboard'
     | '/planner'
@@ -175,7 +165,6 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/contact'
-    | '/features'
     | '/responsible-ai'
     | '/dashboard'
     | '/planner'
@@ -192,7 +181,6 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/contact'
-    | '/features'
     | '/responsible-ai'
     | '/_authenticated/dashboard'
     | '/_authenticated/planner'
@@ -210,7 +198,6 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   ContactRoute: typeof ContactRoute
-  FeaturesRoute: typeof FeaturesRoute
   ResponsibleAiRoute: typeof ResponsibleAiRoute
   ApiChatRoute: typeof ApiChatRoute
 }
@@ -222,13 +209,6 @@ declare module '@tanstack/react-router' {
       path: '/responsible-ai'
       fullPath: '/responsible-ai'
       preLoaderRoute: typeof ResponsibleAiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/features': {
-      id: '/features'
-      path: '/features'
-      fullPath: '/features'
-      preLoaderRoute: typeof FeaturesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -355,7 +335,6 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   ContactRoute: ContactRoute,
-  FeaturesRoute: FeaturesRoute,
   ResponsibleAiRoute: ResponsibleAiRoute,
   ApiChatRoute: ApiChatRoute,
 }
