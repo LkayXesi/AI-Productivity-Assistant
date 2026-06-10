@@ -1,18 +1,30 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Sparkles } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { Menu, Sparkles, Mail, FileText, ListChecks, Search, MessageSquare } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/features", label: "Features" },
   { to: "/dashboard", label: "Dashboard" },
   { to: "/planner", label: "Planner" },
-  { to: "/responsible-ai", label: "Responsible AI" },
-  { to: "/contact", label: "Contact" },
+] as const;
+
+const FEATURES = [
+  { to: "/tools/email", label: "Smart Email Generator", icon: Mail },
+  { to: "/tools/summarizer", label: "Meeting Summarizer", icon: FileText },
+  { to: "/tools/planner", label: "AI Task Planner", icon: ListChecks },
+  { to: "/tools/research", label: "AI Research Assistant", icon: Search },
+  { to: "/tools/chat", label: "AI Chat Assistant", icon: MessageSquare },
 ] as const;
 
 export function SiteHeader() {
@@ -38,8 +50,33 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-56 gap-1 p-2">
+                    {FEATURES.map((f) => (
+                      <li key={f.to}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={f.to}
+                            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                          >
+                            <f.icon className="h-4 w-4 text-muted-foreground" />
+                            {f.label}
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
           {NAV.map((n) => {
-            const active = path === n.to || (n.to !== "/" && path.startsWith(n.to));
+            const active = path === n.to || path.startsWith(n.to);
             return (
               <Link
                 key={n.to}
@@ -82,11 +119,20 @@ export function SiteHeader() {
           </SheetTrigger>
           <SheetContent side="right" className="w-72">
             <div className="mt-8 flex flex-col gap-1">
-              {NAV.map((n) => (
-                <Link key={n.to} to={n.to} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-secondary">
-                  {n.label}
+              <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Features</div>
+              {FEATURES.map((f) => (
+                <Link key={f.to} to={f.to} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-secondary flex items-center gap-2">
+                  <f.icon className="h-4 w-4 text-muted-foreground" />
+                  {f.label}
                 </Link>
               ))}
+              <div className="mt-2 border-t pt-2 flex flex-col gap-1">
+                {NAV.map((n) => (
+                  <Link key={n.to} to={n.to} className="rounded-md px-3 py-2 text-sm font-medium hover:bg-secondary">
+                    {n.label}
+                  </Link>
+                ))}
+              </div>
               <div className="mt-4 border-t pt-4 flex flex-col gap-2">
                 {user ? (
                   <Button onClick={signOut} variant="outline">Sign out</Button>
