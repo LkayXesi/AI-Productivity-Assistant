@@ -11,10 +11,12 @@ export function SiteFooter() {
           </p>
         </div>
         <div>
-          <div className="font-semibold mb-2">Product</div>
+          <div className="font-semibold mb-2">Products</div>
           <ul className="space-y-1 text-muted-foreground">
             <li><Link to="/dashboard" className="hover:text-foreground">Dashboard</Link></li>
             <li><Link to="/planner" className="hover:text-foreground">Planner</Link></li>
+            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
+            <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
           </ul>
         </div>
         <div>
