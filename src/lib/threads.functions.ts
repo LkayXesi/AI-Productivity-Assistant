@@ -77,7 +77,7 @@ export const getThreadMessages = createServerFn({ method: "GET" })
       .eq("user_id", context.userId)
       .order("created_at", { ascending: true });
     if (error) throw new Error(error.message);
-    return (rows ?? []).map((r) => r.message as unknown as UIMessage);
+    return (rows ?? []).map((r) => r.message as unknown as Record<string, unknown>);
   });
 
 export const clearThread = createServerFn({ method: "POST" })
