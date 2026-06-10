@@ -23,11 +23,13 @@ const CARDS = [
 ] as const;
 
 const QUICK = [
+  { to: "/planner", label: "Daily Planner", icon: CalendarDays },
   { to: "/tools/email", label: "New Email", icon: Mail },
   { to: "/tools/summarizer", label: "New Summary", icon: FileText },
   { to: "/tools/planner", label: "New Plan", icon: ListChecks },
   { to: "/tools/research", label: "New Research", icon: Search },
   { to: "/tools/chat", label: "Open AI Chat", icon: MessageSquare },
+  { to: "/profile", label: "Profile", icon: User },
 ] as const;
 
 function Dashboard() {
