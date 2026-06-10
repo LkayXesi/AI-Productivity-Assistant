@@ -18,9 +18,7 @@ Page map:
 - Task Planner: /tools/planner
 - Research Assistant: /tools/research
 - Full AI Chat: /tools/chat
-- Features: /features
-- Responsible AI: /responsible-ai
-- Contact: /contact
+- Daily Planner: /planner
 
 Keep replies short, business-focused, and helpful. Use bullet points for steps. Always remind users that AI outputs should be reviewed before professional use, when relevant.`;
 
