@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Mail, FileText, ListChecks, Search, MessageSquare, Plus } from "lucide-react";
+import { Mail, FileText, ListChecks, Search, MessageSquare, Plus, CalendarDays, User } from "lucide-react";
 import { Suspense } from "react";
 import { getDashboardStats } from "@/lib/threads.functions";
 import { AppShell } from "@/components/AppShell";
