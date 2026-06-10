@@ -13,7 +13,7 @@ import { Copy, RotateCw, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/tools/email")({
-  head: () => ({ meta: [{ title: "Email Generator — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "Email Generator — Space Hub" }] }),
   component: Page,
 });
 

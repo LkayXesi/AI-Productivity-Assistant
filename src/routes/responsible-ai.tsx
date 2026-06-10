@@ -4,7 +4,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ShieldCheck, AlertTriangle, Eye, Users, Lock } from "lucide-react";
 
 export const Route = createFileRoute("/responsible-ai")({
-  head: () => ({ meta: [{ title: "Responsible AI — AI Workplace" }, { name: "description", content: "Our principles for responsible AI: transparency, human review, privacy, and bias awareness." }] }),
+  head: () => ({ meta: [{ title: "Responsible AI — Space Hub" }, { name: "description", content: "Our principles for responsible AI: transparency, human review, privacy, and bias awareness." }] }),
   component: Page,
 });
 

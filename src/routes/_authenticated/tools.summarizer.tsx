@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import ReactMarkdown from "react-markdown";
 
 export const Route = createFileRoute("/_authenticated/tools/summarizer")({
-  head: () => ({ meta: [{ title: "Meeting Notes Summarizer — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "Meeting Notes Summarizer — Space Hub" }] }),
   component: Page,
 });
 

@@ -33,7 +33,7 @@ export function SiteHeader() {
           <span className="grid h-9 w-9 place-items-center rounded-lg gradient-brand text-white shadow-sm">
             <Sparkles className="h-5 w-5" />
           </span>
-          <span className="hidden sm:inline text-base text-foreground">AI Workplace</span>
+          <span className="hidden sm:inline text-base text-foreground">Space Hub</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">

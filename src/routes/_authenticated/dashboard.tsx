@@ -10,7 +10,7 @@ import { getDashboardStats } from "@/lib/threads.functions";
 import { AppShell } from "@/components/AppShell";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — Space Hub" }] }),
   component: Dashboard,
 });
 

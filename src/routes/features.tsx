@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, FileText, ListChecks, Search, MessageSquare, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/features")({
-  head: () => ({ meta: [{ title: "Features — AI Workplace" }, { name: "description", content: "Five AI tools for modern professionals: email generation, meeting summarizer, task planner, research assistant, and AI chat." }] }),
+  head: () => ({ meta: [{ title: "Features — Space Hub" }, { name: "description", content: "Five AI tools for modern professionals: email generation, meeting summarizer, task planner, research assistant, and AI chat." }] }),
   component: Page,
 });
 

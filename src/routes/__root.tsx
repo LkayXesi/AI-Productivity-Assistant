@@ -49,9 +49,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Workplace Productivity Assistant" },
+      { title: "Space Hub" },
       { name: "description", content: "Boost workplace productivity with AI — generate emails, summarize meetings, plan tasks, and research smarter." },
-      { property: "og:title", content: "AI Workplace Productivity Assistant" },
+      { property: "og:title", content: "Space Hub" },
       { property: "og:description", content: "Generate emails, summarize meetings, plan tasks, conduct research, and chat with your personal AI assistant." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

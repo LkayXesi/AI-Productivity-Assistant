@@ -14,7 +14,7 @@ const search = z.object({ mode: z.enum(["login", "signup"]).default("login").cat
 
 export const Route = createFileRoute("/auth")({
   validateSearch: search,
-  head: () => ({ meta: [{ title: "Sign in — AI Workplace" }, { name: "description", content: "Log in or sign up for AI Workplace." }] }),
+  head: () => ({ meta: [{ title: "Sign in — Space Hub" }, { name: "description", content: "Log in or sign up for Space Hub." }] }),
   component: AuthPage,
 });
 
@@ -69,7 +69,7 @@ function AuthPage() {
         </div>
         <h1 className="text-2xl font-bold text-center">{mode === "signup" ? "Create your account" : "Welcome back"}</h1>
         <p className="text-center text-sm text-muted-foreground mt-1">
-          {mode === "signup" ? "Start automating your workday." : "Sign in to your AI Workplace."}
+          {mode === "signup" ? "Start automating your workday." : "Sign in to your Space Hub."}
         </p>
 
         <Button onClick={google} variant="outline" className="w-full mt-6">

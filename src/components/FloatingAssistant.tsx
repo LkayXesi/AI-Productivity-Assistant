@@ -30,7 +30,7 @@ const WELCOME: UIMessage = {
   parts: [
     {
       type: "text",
-      text: `👋 **Welcome to AI Workplace Productivity Assistant.**
+      text: `👋 **Welcome to Space Hub.**
 
 I'm your AI Guide and Productivity Assistant. I can:
 - ✓ Help you navigate the platform
@@ -187,7 +187,7 @@ function Header({ onMinimize, onClose, onClear, minimized }: { onMinimize: () =>
           <Bot className="h-4 w-4" />
         </span>
         <div className="leading-tight">
-          <div className="text-sm font-semibold">🤖 AI Workplace Assistant</div>
+          <div className="text-sm font-semibold">🤖 Space Hub Assistant</div>
           <div className="text-[11px] text-primary-foreground/70 flex items-center gap-1">
             <span className="h-1.5 w-1.5 rounded-full bg-success inline-block" /> Online
           </div>
