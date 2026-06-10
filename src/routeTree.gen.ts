@@ -9,9 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResponsibleAiRouteImport } from './routes/responsible-ai'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedToolsSummarizerRouteImport } from './routes/_authenticated/tools.summarizer'
+import { Route as AuthenticatedToolsResearchRouteImport } from './routes/_authenticated/tools.research'
+import { Route as AuthenticatedToolsPlannerRouteImport } from './routes/_authenticated/tools.planner'
+import { Route as AuthenticatedToolsEmailRouteImport } from './routes/_authenticated/tools.email'
+import { Route as AuthenticatedToolsChatRouteImport } from './routes/_authenticated/tools.chat'
 
+const ResponsibleAiRoute = ResponsibleAiRouteImport.update({
+  id: '/responsible-ai',
+  path: '/responsible-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -22,35 +57,177 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedToolsSummarizerRoute =
+  AuthenticatedToolsSummarizerRouteImport.update({
+    id: '/tools/summarizer',
+    path: '/tools/summarizer',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedToolsResearchRoute =
+  AuthenticatedToolsResearchRouteImport.update({
+    id: '/tools/research',
+    path: '/tools/research',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedToolsPlannerRoute =
+  AuthenticatedToolsPlannerRouteImport.update({
+    id: '/tools/planner',
+    path: '/tools/planner',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedToolsEmailRoute = AuthenticatedToolsEmailRouteImport.update({
+  id: '/tools/email',
+  path: '/tools/email',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedToolsChatRoute = AuthenticatedToolsChatRouteImport.update({
+  id: '/tools/chat',
+  path: '/tools/chat',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/responsible-ai': typeof ResponsibleAiRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/api/chat': typeof ApiChatRoute
+  '/tools/chat': typeof AuthenticatedToolsChatRoute
+  '/tools/email': typeof AuthenticatedToolsEmailRoute
+  '/tools/planner': typeof AuthenticatedToolsPlannerRoute
+  '/tools/research': typeof AuthenticatedToolsResearchRoute
+  '/tools/summarizer': typeof AuthenticatedToolsSummarizerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/responsible-ai': typeof ResponsibleAiRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/api/chat': typeof ApiChatRoute
+  '/tools/chat': typeof AuthenticatedToolsChatRoute
+  '/tools/email': typeof AuthenticatedToolsEmailRoute
+  '/tools/planner': typeof AuthenticatedToolsPlannerRoute
+  '/tools/research': typeof AuthenticatedToolsResearchRoute
+  '/tools/summarizer': typeof AuthenticatedToolsSummarizerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/contact': typeof ContactRoute
+  '/features': typeof FeaturesRoute
+  '/responsible-ai': typeof ResponsibleAiRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/api/chat': typeof ApiChatRoute
+  '/_authenticated/tools/chat': typeof AuthenticatedToolsChatRoute
+  '/_authenticated/tools/email': typeof AuthenticatedToolsEmailRoute
+  '/_authenticated/tools/planner': typeof AuthenticatedToolsPlannerRoute
+  '/_authenticated/tools/research': typeof AuthenticatedToolsResearchRoute
+  '/_authenticated/tools/summarizer': typeof AuthenticatedToolsSummarizerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/contact'
+    | '/features'
+    | '/responsible-ai'
+    | '/dashboard'
+    | '/api/chat'
+    | '/tools/chat'
+    | '/tools/email'
+    | '/tools/planner'
+    | '/tools/research'
+    | '/tools/summarizer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/chat'
-  id: '__root__' | '/' | '/api/chat'
+  to:
+    | '/'
+    | '/auth'
+    | '/contact'
+    | '/features'
+    | '/responsible-ai'
+    | '/dashboard'
+    | '/api/chat'
+    | '/tools/chat'
+    | '/tools/email'
+    | '/tools/planner'
+    | '/tools/research'
+    | '/tools/summarizer'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/contact'
+    | '/features'
+    | '/responsible-ai'
+    | '/_authenticated/dashboard'
+    | '/api/chat'
+    | '/_authenticated/tools/chat'
+    | '/_authenticated/tools/email'
+    | '/_authenticated/tools/planner'
+    | '/_authenticated/tools/research'
+    | '/_authenticated/tools/summarizer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  ContactRoute: typeof ContactRoute
+  FeaturesRoute: typeof FeaturesRoute
+  ResponsibleAiRoute: typeof ResponsibleAiRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/responsible-ai': {
+      id: '/responsible-ai'
+      path: '/responsible-ai'
+      fullPath: '/responsible-ai'
+      preLoaderRoute: typeof ResponsibleAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,13 +242,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tools/summarizer': {
+      id: '/_authenticated/tools/summarizer'
+      path: '/tools/summarizer'
+      fullPath: '/tools/summarizer'
+      preLoaderRoute: typeof AuthenticatedToolsSummarizerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tools/research': {
+      id: '/_authenticated/tools/research'
+      path: '/tools/research'
+      fullPath: '/tools/research'
+      preLoaderRoute: typeof AuthenticatedToolsResearchRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tools/planner': {
+      id: '/_authenticated/tools/planner'
+      path: '/tools/planner'
+      fullPath: '/tools/planner'
+      preLoaderRoute: typeof AuthenticatedToolsPlannerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tools/email': {
+      id: '/_authenticated/tools/email'
+      path: '/tools/email'
+      fullPath: '/tools/email'
+      preLoaderRoute: typeof AuthenticatedToolsEmailRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tools/chat': {
+      id: '/_authenticated/tools/chat'
+      path: '/tools/chat'
+      fullPath: '/tools/chat'
+      preLoaderRoute: typeof AuthenticatedToolsChatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedToolsChatRoute: typeof AuthenticatedToolsChatRoute
+  AuthenticatedToolsEmailRoute: typeof AuthenticatedToolsEmailRoute
+  AuthenticatedToolsPlannerRoute: typeof AuthenticatedToolsPlannerRoute
+  AuthenticatedToolsResearchRoute: typeof AuthenticatedToolsResearchRoute
+  AuthenticatedToolsSummarizerRoute: typeof AuthenticatedToolsSummarizerRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedToolsChatRoute: AuthenticatedToolsChatRoute,
+  AuthenticatedToolsEmailRoute: AuthenticatedToolsEmailRoute,
+  AuthenticatedToolsPlannerRoute: AuthenticatedToolsPlannerRoute,
+  AuthenticatedToolsResearchRoute: AuthenticatedToolsResearchRoute,
+  AuthenticatedToolsSummarizerRoute: AuthenticatedToolsSummarizerRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  ContactRoute: ContactRoute,
+  FeaturesRoute: FeaturesRoute,
+  ResponsibleAiRoute: ResponsibleAiRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
