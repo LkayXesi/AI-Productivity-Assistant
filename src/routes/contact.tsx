@@ -10,7 +10,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({ meta: [{ title: "Contact — AI Workplace" }, { name: "description", content: "Get in touch with the AI Workplace team." }] }),
+  head: () => ({ meta: [{ title: "Contact — Space Hub" }, { name: "description", content: "Get in touch with the Space Hub team." }] }),
   component: Page,
 });
 
@@ -44,7 +44,7 @@ function Page() {
         </Card>
         <Card className="p-6 space-y-4 text-sm">
           <h3 className="font-semibold">Company</h3>
-          <div className="flex items-start gap-2 text-muted-foreground"><Mail className="h-4 w-4 mt-0.5" /> hello@aiworkplace.app</div>
+          <div className="flex items-start gap-2 text-muted-foreground"><Mail className="h-4 w-4 mt-0.5" /> hello@spacehub.app</div>
           <div className="flex items-start gap-2 text-muted-foreground"><Phone className="h-4 w-4 mt-0.5" /> +1 (415) 555-0142</div>
           <div className="flex items-start gap-2 text-muted-foreground"><MapPin className="h-4 w-4 mt-0.5" /> Remote-first, Worldwide</div>
         </Card>

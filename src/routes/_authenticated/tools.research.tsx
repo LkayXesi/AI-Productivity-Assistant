@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import ReactMarkdown from "react-markdown";
 
 export const Route = createFileRoute("/_authenticated/tools/research")({
-  head: () => ({ meta: [{ title: "AI Research Assistant — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "AI Research Assistant — Space Hub" }] }),
   component: Page,
 });
 

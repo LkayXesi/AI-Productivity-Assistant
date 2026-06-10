@@ -16,6 +16,8 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedToolsSummarizerRouteImport } from './routes/_authenticated/tools.summarizer'
 import { Route as AuthenticatedToolsResearchRouteImport } from './routes/_authenticated/tools.research'
@@ -56,6 +58,16 @@ const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPlannerRoute = AuthenticatedPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
@@ -98,6 +110,8 @@ export interface FileRoutesByFullPath {
   '/features': typeof FeaturesRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/planner': typeof AuthenticatedPlannerRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/api/chat': typeof ApiChatRoute
   '/tools/chat': typeof AuthenticatedToolsChatRoute
   '/tools/email': typeof AuthenticatedToolsEmailRoute
@@ -112,6 +126,8 @@ export interface FileRoutesByTo {
   '/features': typeof FeaturesRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/planner': typeof AuthenticatedPlannerRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/api/chat': typeof ApiChatRoute
   '/tools/chat': typeof AuthenticatedToolsChatRoute
   '/tools/email': typeof AuthenticatedToolsEmailRoute
@@ -128,6 +144,8 @@ export interface FileRoutesById {
   '/features': typeof FeaturesRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/planner': typeof AuthenticatedPlannerRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/api/chat': typeof ApiChatRoute
   '/_authenticated/tools/chat': typeof AuthenticatedToolsChatRoute
   '/_authenticated/tools/email': typeof AuthenticatedToolsEmailRoute
@@ -144,6 +162,8 @@ export interface FileRouteTypes {
     | '/features'
     | '/responsible-ai'
     | '/dashboard'
+    | '/planner'
+    | '/profile'
     | '/api/chat'
     | '/tools/chat'
     | '/tools/email'
@@ -158,6 +178,8 @@ export interface FileRouteTypes {
     | '/features'
     | '/responsible-ai'
     | '/dashboard'
+    | '/planner'
+    | '/profile'
     | '/api/chat'
     | '/tools/chat'
     | '/tools/email'
@@ -173,6 +195,8 @@ export interface FileRouteTypes {
     | '/features'
     | '/responsible-ai'
     | '/_authenticated/dashboard'
+    | '/_authenticated/planner'
+    | '/_authenticated/profile'
     | '/api/chat'
     | '/_authenticated/tools/chat'
     | '/_authenticated/tools/email'
@@ -242,6 +266,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/planner': {
+      id: '/_authenticated/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof AuthenticatedPlannerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -289,6 +327,8 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedPlannerRoute: typeof AuthenticatedPlannerRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedToolsChatRoute: typeof AuthenticatedToolsChatRoute
   AuthenticatedToolsEmailRoute: typeof AuthenticatedToolsEmailRoute
   AuthenticatedToolsPlannerRoute: typeof AuthenticatedToolsPlannerRoute
@@ -298,6 +338,8 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedPlannerRoute: AuthenticatedPlannerRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedToolsChatRoute: AuthenticatedToolsChatRoute,
   AuthenticatedToolsEmailRoute: AuthenticatedToolsEmailRoute,
   AuthenticatedToolsPlannerRoute: AuthenticatedToolsPlannerRoute,

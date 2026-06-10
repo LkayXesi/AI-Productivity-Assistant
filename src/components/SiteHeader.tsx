@@ -10,6 +10,7 @@ const NAV = [
   { to: "/", label: "Home" },
   { to: "/features", label: "Features" },
   { to: "/dashboard", label: "Dashboard" },
+  { to: "/planner", label: "Planner" },
   { to: "/responsible-ai", label: "Responsible AI" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -33,7 +34,7 @@ export function SiteHeader() {
           <span className="grid h-9 w-9 place-items-center rounded-lg gradient-brand text-white shadow-sm">
             <Sparkles className="h-5 w-5" />
           </span>
-          <span className="hidden sm:inline text-base text-foreground">AI Workplace</span>
+          <span className="hidden sm:inline text-base text-foreground">Space Hub</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -56,7 +57,7 @@ export function SiteHeader() {
         <div className="hidden md:flex items-center gap-2">
           {user ? (
             <>
-              <Link to="/dashboard">
+              <Link to="/profile">
                 <Button variant="ghost" size="sm">{user.email?.split("@")[0]}</Button>
               </Link>
               <Button size="sm" variant="outline" onClick={signOut}>Sign out</Button>

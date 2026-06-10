@@ -12,7 +12,7 @@ import { toast } from "sonner";
 import ReactMarkdown from "react-markdown";
 
 export const Route = createFileRoute("/_authenticated/tools/planner")({
-  head: () => ({ meta: [{ title: "AI Task Planner — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "AI Task Planner — Space Hub" }] }),
   component: Page,
 });
 

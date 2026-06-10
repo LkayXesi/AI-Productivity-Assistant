@@ -6,7 +6,7 @@ import { Mail, FileText, ListChecks, Search, MessageSquare, Sparkles, ArrowRight
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AI Workplace Productivity Assistant" },
+      { title: "Space Hub" },
       { name: "description", content: "Boost workplace productivity with AI — generate emails, summarize meetings, plan tasks, research, and chat with your AI assistant." },
     ],
   }),
@@ -59,7 +59,7 @@ function Landing() {
             <div className="rounded-2xl bg-card/95 backdrop-blur p-6 shadow-2xl border border-white/10">
               <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                 <span className="h-2 w-2 rounded-full bg-destructive" /><span className="h-2 w-2 rounded-full bg-warning" /><span className="h-2 w-2 rounded-full bg-success" />
-                <span className="ml-2">AI Workplace</span>
+                <span className="ml-2">Space Hub</span>
               </div>
               <div className="space-y-3">
                 <div className="rounded-lg border bg-secondary/50 p-3 text-sm">

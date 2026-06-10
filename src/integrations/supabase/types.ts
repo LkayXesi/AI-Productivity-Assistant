@@ -106,6 +106,48 @@ export type Database = {
         }
         Relationships: []
       }
+      planner_events: {
+        Row: {
+          completed: boolean
+          created_at: string
+          end_time: string | null
+          event_date: string
+          id: string
+          notes: string | null
+          priority: string
+          start_time: string | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          created_at?: string
+          end_time?: string | null
+          event_date: string
+          id?: string
+          notes?: string | null
+          priority?: string
+          start_time?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          created_at?: string
+          end_time?: string | null
+          event_date?: string
+          id?: string
+          notes?: string | null
+          priority?: string
+          start_time?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

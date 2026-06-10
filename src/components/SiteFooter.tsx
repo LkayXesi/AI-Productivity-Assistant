@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="border-t border-border/60 bg-card mt-16">
       <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-5 gap-8 px-6 py-12 text-sm">
         <div className="col-span-2">
-          <div className="font-semibold text-foreground">AI Workplace Productivity Assistant</div>
+          <div className="font-semibold text-foreground">Space Hub</div>
           <p className="mt-2 text-muted-foreground max-w-sm">
             Generate emails, summarize meetings, plan tasks, and research smarter — all in one professional workspace.
           </p>
@@ -33,7 +33,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
-        © 2026 AI Workplace Productivity Assistant. All Rights Reserved.
+        © 2026 Space Hub. All Rights Reserved.
       </div>
     </footer>
   );

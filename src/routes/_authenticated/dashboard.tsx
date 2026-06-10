@@ -4,13 +4,13 @@ import { useServerFn } from "@tanstack/react-start";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Mail, FileText, ListChecks, Search, MessageSquare, Plus } from "lucide-react";
+import { Mail, FileText, ListChecks, Search, MessageSquare, Plus, CalendarDays, User } from "lucide-react";
 import { Suspense } from "react";
 import { getDashboardStats } from "@/lib/threads.functions";
 import { AppShell } from "@/components/AppShell";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — Space Hub" }] }),
   component: Dashboard,
 });
 
@@ -23,11 +23,13 @@ const CARDS = [
 ] as const;
 
 const QUICK = [
+  { to: "/planner", label: "Daily Planner", icon: CalendarDays },
   { to: "/tools/email", label: "New Email", icon: Mail },
   { to: "/tools/summarizer", label: "New Summary", icon: FileText },
   { to: "/tools/planner", label: "New Plan", icon: ListChecks },
   { to: "/tools/research", label: "New Research", icon: Search },
   { to: "/tools/chat", label: "Open AI Chat", icon: MessageSquare },
+  { to: "/profile", label: "Profile", icon: User },
 ] as const;
 
 function Dashboard() {

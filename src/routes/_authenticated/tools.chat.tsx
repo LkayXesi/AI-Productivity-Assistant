@@ -14,7 +14,7 @@ import { toast } from "sonner";
 import ReactMarkdown from "react-markdown";
 
 export const Route = createFileRoute("/_authenticated/tools/chat")({
-  head: () => ({ meta: [{ title: "AI Chat — AI Workplace" }] }),
+  head: () => ({ meta: [{ title: "AI Chat — Space Hub" }] }),
   component: Page,
 });
 
