@@ -17,6 +17,7 @@ import { useQueryClient } from "@tanstack/react-query";
 const NAV = [
   { to: "/dashboard", label: "Dashboard" },
   { to: "/planner", label: "Planner" },
+  { to: "/responsible-ai", label: "Responsible AI" },
 ] as const;
 
 const FEATURES = [
